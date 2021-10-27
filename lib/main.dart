@@ -1,3 +1,7 @@
+
+
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'calculationPage.dart';
@@ -31,6 +35,12 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 6), ()=>Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Calculation())));
+  }
+
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -83,29 +93,29 @@ class _HomepageState extends State<Homepage> {
                       fontSize: 50,
                       fontWeight: FontWeight.bold),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(40.0),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Calculation()));
-                    },
-                    child: Text(
-                      "Calculate",
-                      style: TextStyle(fontSize: 25, color: Colors.black,fontWeight: FontWeight.bold),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
-                      foregroundColor: MaterialStateProperty.all(Colors.white),
-                      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                        (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.pressed))
-                            return Colors.black12;
-                          return null; // Defer to the widget's default.
-                        },
-                      ),
-                    ),
-                  ),
-                )
+                // Padding(
+                //   padding: const EdgeInsets.all(40.0),
+                //   child: TextButton(
+                //     onPressed: () {
+                //       Navigator.push(context, MaterialPageRoute(builder: (context)=>Calculation()));
+                //     },
+                //     child: Text(
+                //       "Calculate",
+                //       style: TextStyle(fontSize: 25, color: Colors.black,fontWeight: FontWeight.bold),
+                //     ),
+                //     style: ButtonStyle(
+                //       backgroundColor: MaterialStateProperty.all(Colors.white),
+                //       foregroundColor: MaterialStateProperty.all(Colors.white),
+                //       overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                //         (Set<MaterialState> states) {
+                //           if (states.contains(MaterialState.pressed))
+                //             return Colors.black12;
+                //           return null; // Defer to the widget's default.
+                //         },
+                //       ),
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ))
