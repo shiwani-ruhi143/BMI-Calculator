@@ -37,7 +37,7 @@ class _HomepageState extends State<Homepage> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 6), ()=>Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Calculation())));
+    Timer(Duration(seconds: 4), ()=>Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Calculation())));
   }
 
 @override
